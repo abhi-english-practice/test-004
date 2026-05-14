@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Đề thi Tiếng Anh - Mã đề 902</title>
+<style>
+    :root {
+        --ink: #4b2e25;
+        --muted: #6b4b3e;
+        --line: #dccfc5;
+        --soft: #f9f4ef;
+        --brand: #8f4e3b;
+        --brand-dark: #6f392b;
+        --brand-soft: #f5ebe4;
+        --blue: #1d4ed8;
+        --green-bg: #dcfce7;
+        --green: #166534;
+        --red-bg: #fee2e2;
+        --red: #991b1b;
+        --yellow-bg: #fef3c7;
+        --yellow: #92400e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: #efe7e1;
+        line-height: 1.45;
+        font-size: 15px;
+        text-align: left;
+    }
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 18px;
+        background: linear-gradient(90deg, var(--brand-dark), var(--brand));
+        color: #fffaf6;
+        box-shadow: 0 2px 10px rgba(74, 44, 34, .22);
+    }
+    .topbar-title { font-weight: 700; letter-spacing: .2px; }
+    .timer-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+    }
+    #timer {
+        min-width: 74px;
+        text-align: center;
+        padding: 5px 9px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,.45);
+        background: rgba(255,255,255,.12);
+        color: #fffaf6;
+        font-variant-numeric: tabular-nums;
+    }
+    #timer.warning {
+        color: #111827;
+        background: #facc15;
+        border-color: #fbbf24;
+    }
+    #timer.expired {
+        color: #fff;
+        background: #dc2626;
+        border-color: #ef4444;
+    }
+    .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 18px;
+        align-items: start;
+        width: min(100%, 1400px);
+        margin: 18px auto 32px;
+        padding: 0 18px;
+    }
+    .paper {
+        width: 100%;
+        max-width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 16mm 16mm 18mm;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 22px rgba(74, 44, 34, .14);
+    }
+    .exam-header {
+        border-bottom: 2px solid var(--brand-dark);
+        padding-bottom: 10px;
+        margin-bottom: 14px;
+    }
+    .header-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 18px;
+        align-items: start;
+        text-align: center;
+    }
+    .header-grid p { margin: 2px 0; }
+    .office { font-weight: 700; text-transform: uppercase; }
+    .official-box {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 4px 14px;
+        border: 1.5px solid var(--brand-dark);
+        color: var(--brand-dark);
+        font-weight: 700;
+    }
+    .exam-title { font-weight: 800; text-transform: uppercase; letter-spacing: .3px; }
+    .subject { font-weight: 800; text-transform: uppercase; }
+    .meta-line {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 12px;
+        align-items: end;
+        margin-top: 14px;
+        text-align: left;
+    }
+    .blank-line {
+        display: inline-block;
+        min-width: 220px;
+        border-bottom: 1px dotted #111;
+        height: 1.1em;
+        vertical-align: bottom;
+    }
+    .code-box { font-weight: 800; white-space: nowrap; }
+    .student-info {
+        display: grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap: 12px;
+        margin: 14px 0 10px;
+        padding: 12px;
+        background: var(--brand-soft);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+    }
+    .field label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--muted);
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+    }
+    .field input {
+        width: 100%;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        font-size: 15px;
+        background: #fff;
+    }
+    .section {
+        margin-top: 18px;
+        padding-top: 4px;
+    }
+    .section-title {
+        margin: 0 0 10px;
+        font-weight: 800;
+        font-size: 15.5px;
+    }
+    .passage, .announcement, .phrase-bank, .message-card, .sign-card {
+        margin: 10px 0 14px;
+    }
+    .passage {
+        padding: 10px 12px;
+        border-left: 4px solid var(--brand);
+        background: var(--brand-soft);
+    }
+    .passage p { margin: 7px 0; text-align: justify; }
+    .passage h3 { margin: 0 0 8px; text-align: center; letter-spacing: .4px; }
+    .source-note { text-align: right !important; font-style: italic; color: var(--muted); }
+    .announcement {
+        border: 2px solid var(--brand-dark);
+        padding: 10px 16px;
+        background: #fff;
+    }
+    .announcement h3 {
+        margin: 0 0 10px;
+        text-align: center;
+        line-height: 1.25;
+        letter-spacing: .3px;
+    }
+    .announcement ul { margin: 8px 0 8px 22px; padding: 0; }
+    .announcement li { margin: 4px 0; }
+    .phrase-bank {
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--brand-soft);
+    }
+    .phrase-bank p { margin: 4px 0; }
+    .message-card {
+        max-width: 420px;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--soft);
+    }
+    .avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: #fff;
+        background: var(--brand);
+    }
+    .bubble {
+        position: relative;
+        padding: 9px 12px;
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid #d1d5db;
+    }
+    .bubble p { margin: 0 0 6px; }
+    .bubble .signature {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 0;
+        font-size: 13px;
+        color: var(--muted);
+    }
+    .sign-card {
+        max-width: 300px;
+        text-align: center;
+        border: 2px solid var(--brand-dark);
+        color: var(--ink);
+        padding: 14px 12px;
+        font-size: 18px;
+        line-height: 1.35;
+        background: #fff;
+    }
+    .sign-card span {
+        display: block;
+        margin-top: 8px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .question {
+        padding: 12px 0;
+        border-bottom: 1px solid #e5e7eb;
+        scroll-margin-top: 76px;
+    }
+    .question:last-child { border-bottom: none; }
+    .q-head {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        margin-bottom: 8px;
+    }
+    .q-number { font-weight: 800; white-space: nowrap; }
+    .q-prompt { flex: 1; }
+    #examPaper, #examContent, .question, .section, .student-info, .result-box, .explanations, .teacher-report { text-align: left; }
+    .message-card, .sign-card { margin-left: 0; margin-right: auto; }
+    .indent-line { display: block; margin: 5px 0 0 18px; }
+    .options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 12px;
+    }
+    .option {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        min-height: 34px;
+        padding: 7px 8px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+    }
+    .option input { margin-top: 2px; }
+    .option .letter { font-weight: 800; min-width: 18px; }
+    .option.correct {
+        background: var(--green-bg);
+        border-color: #86efac;
+        color: var(--green);
+        font-weight: 700;
+    }
+    .option.wrong {
+        background: var(--red-bg);
+        border-color: #fecaca;
+        color: var(--red);
+        font-weight: 700;
+    }
+    .q-status {
+        display: none;
+        margin-top: 8px;
+        font-weight: 700;
+        font-size: 13px;
+    }
+    .submitted .q-status { display: block; }
+    .q-status.correct-text { color: var(--green); }
+    .q-status.wrong-text, .q-status.blank-text { color: var(--red); }
+    .sidebar {
+        position: sticky;
+        top: 72px;
+        align-self: start;
+        width: 100%;
+        max-width: 330px;
+        justify-self: center;
+    }
+    .panel {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(74, 44, 34, .10);
+        overflow: hidden;
+    }
+    .panel h2 {
+        margin: 0;
+        padding: 12px 14px;
+        font-size: 16px;
+        background: linear-gradient(180deg, var(--brand-dark), var(--brand));
+        color: #fffaf6;
+        text-align: center;
+    }
+    .panel-body { padding: 12px; }
+    .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+    }
+    .quick-item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 7px 6px;
+        background: #fff;
+        text-align: center;
+    }
+    .quick-item.answered {
+        border-color: #d0a88e;
+        background: #fcf4ee;
+    }
+    .quick-item a {
+        display: inline-block;
+        margin-bottom: 5px;
+        color: var(--brand-dark);
+        text-decoration: none;
+        font-weight: 800;
+    }
+    .quick-options {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        font-size: 11px;
+    }
+    .quick-options label {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+    }
+    .quick-options input { width: 12px; height: 12px; margin: 0; }
+    .progress-line {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+    }
+    .actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+    }
+    button {
+        border: 0;
+        border-radius: 10px;
+        padding: 11px 14px;
+        font-weight: 800;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .submit-btn { background: var(--brand); color: #fffaf6; }
+    .submit-btn:hover { background: var(--brand-dark); }
+    .pdf-btn { background: #8a5a44; color: #fffaf6; display: none; }
+    .pdf-btn:hover { background: #6f392b; }
+    .submit-btn:disabled { background: #9ca3af; cursor: not-allowed; }
+    .result-box {
+        display: none;
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #d8b6a3;
+        background: #fcf4ee;
+    }
+    .result-box h3 { margin: 0 0 6px; font-size: 16px; }
+    .result-box p { margin: 4px 0; }
+    .explanations {
+        display: none;
+        margin-top: 22px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--soft);
+    }
+    .explanations h2 { margin: 0 0 12px; font-size: 20px; }
+    .explanations h3 {
+        margin: 16px 0 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+    }
+    .explanation-item {
+        margin: 7px 0;
+        padding: 8px 10px;
+        background: #fff;
+        border-left: 3px solid #64748b;
+    }
+    .teacher-report { display: none; }
+    .print-title { text-align: center; font-weight: 800; font-size: 22px; margin: 0 0 14px; }
+    .report-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 20px;
+        margin: 12px 0;
+        font-size: 13px;
+    }
+    .report-meta div { border-bottom: 1px dotted #cbd5e1; padding-bottom: 3px; }
+    .report-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+        margin-top: 12px;
+    }
+    .report-table th, .report-table td {
+        border: 1px solid #6f392b;
+        padding: 5px 6px;
+        text-align: center;
+    }
+    .report-table th { background: #f3f4f6; }
+    .report-table td:nth-child(5) { text-align: left; }
+    .end-mark {
+        text-align: center;
+        margin: 22px 0 0;
+        font-weight: 800;
+        letter-spacing: .5px;
+    }
+    u { text-underline-offset: 2px; }
+    @media (max-width: 1080px) {
+        .layout { grid-template-columns: 1fr; }
+        .paper { width: 100%; max-width: 210mm; }
+        .sidebar { position: static; max-width: 760px; margin: 0 auto; }
+    }
+    @media (min-width: 1081px) {
+        .paper { justify-self: end; }
+        .sidebar { justify-self: start; }
+    }
+    @media (max-width: 720px) {
+        body { font-size: 14px; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .paper { padding: 18px 14px; }
+        .header-grid, .meta-line, .student-info, .options, .report-meta { grid-template-columns: 1fr; }
+        .quick-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @page { size: A4; margin: 12mm; }
+    @media print {
+        body { background: #fff; font-size: 11pt; }
+        body * { visibility: hidden !important; }
+        #teacherReport, #teacherReport * { visibility: visible !important; }
+        #teacherReport {
+            display: block !important;
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            color: #000;
+            background: #fff;
+        }
+        .report-table { page-break-inside: auto; font-size: 10pt; }
+        .report-table tr { page-break-inside: avoid; page-break-after: auto; }
+        .report-table th { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .print-title { font-size: 18pt; }
+        .report-meta { font-size: 10.5pt; grid-template-columns: 1fr 1fr; }
+    }
+</style>
+</head>
+<body>
+<div class="topbar no-print">
+<div class="topbar-title">Đề thi Tiếng Anh - Mã đề 902</div>
+<div class="timer-box">Thời gian còn lại: <span id="timer">60:00</span></div>
+</div>
+<main class="layout no-print">
+<article class="paper" id="examPaper">
+<header class="exam-header">
+<div class="header-grid">
+<div>
+<p class="office">UBND PHƯỜNG GIẢNG VÕ</p>
+<p class="office">PHÒNG VĂN HÓA - XÃ HỘI</p>
+<p><em>(Đề thi có 04 trang)</em></p>
+<div class="official-box">Đề chính thức</div>
+</div>
+<div>
+<p class="exam-title">KHẢO SÁT CHẤT LƯỢNG THI VÀO 10 THPT</p>
+<p class="exam-title">NĂM HỌC 2025 - 2026</p>
+<p class="subject">MÔN: TIẾNG ANH</p>
+<p><em>Thời gian làm bài: 60 phút</em></p>
+<p><em>(không kể thời gian phát đề)</em></p>
+</div>
+</div>
+<div class="meta-line">
+<div>Họ và tên: <span class="blank-line"></span></div>
+<div>Số báo danh: <span class="blank-line" style="min-width: 130px"></span></div>
+<div class="code-box">Mã đề 902</div>
+</div>
+</header>
+<section aria-label="Thông tin học sinh" class="student-info">
+<div class="field">
+<label for="studentName">Họ và tên học sinh</label>
+<input autocomplete="name" id="studentName" placeholder="Nhập họ và tên" type="text"/>
+</div>
+<div class="field">
+<label for="studentClass">Số báo danh hoặc lớp</label>
+<input id="studentClass" placeholder="Nhập SBD hoặc lớp" type="text"/>
+</div>
+</section>
+<div id="examContent"></div>
+<p class="end-mark">----- THE END -----</p>
+<section aria-live="polite" class="explanations" id="explanations"></section>
+</article>
+<aside class="sidebar">
+<div class="panel">
+<h2>Bảng trả lời nhanh</h2>
+<div class="panel-body">
+<div class="quick-grid" id="quickGrid"></div>
+<p class="progress-line" id="progressLine">Đã trả lời: 0/40 câu</p>
+<div class="actions">
+<button class="submit-btn" id="submitBtn" type="button">📩 NỘP BÀI &amp; CHẤM ĐIỂM</button>
+<button class="pdf-btn" id="pdfBtn" type="button">📄 XUẤT PDF NỘP GIÁO VIÊN</button>
+</div>
+<div class="result-box" id="resultBox"></div>
+</div>
+</div>
+</aside>
+</main>
+<section aria-hidden="true" class="teacher-report" id="teacherReport"></section>
+<script>
+const examInfo = {
+  "school": "UBND PHƯỜNG GIẢNG VÕ - PHÒNG VĂN HÓA - XÃ HỘI",
+  "schoolLine1": "UBND PHƯỜNG GIẢNG VÕ",
+  "schoolLine2": "PHÒNG VĂN HÓA - XÃ HỘI",
+  "examTitle": "KHẢO SÁT CHẤT LƯỢNG THI VÀO 10 THPT",
+  "schoolYear": "NĂM HỌC 2025 - 2026",
+  "subject": "TIẾNG ANH",
+  "examDate": "06/05/2026",
+  "durationMinutes": 60,
+  "code": "902",
+  "storageKey": "exam_attempt_count_ma_de_902"
+};
+const sections = [
+  {
+    "title": "Read the following sign or notice and mark the letter A, B, C, or D on your answer sheet to indicate the correct answer to each of the following questions.",
+    "questions": [
+      {
+        "id": "q1",
+        "number": 1,
+        "prompt": "What does the message say?",
+        "stimulusHtml": "\n                <div class='message-card' aria-label='Tin nhắn của Tom'>\n                    <div class='avatar'>T</div>\n                    <div class='bubble'>\n                        <p>Hi! I'll be a bit late to our science group meeting this afternoon. Can you tell the others to start without me? I'll be there by 4 p.m.</p>\n                        <p class='signature'>– Tom <span>3:22 PM</span></p>\n                    </div>\n                </div>\n                ",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Tom wants others to move the meeting to another day."
+          },
+          {
+            "letter": "B",
+            "text": "Tom is asking others to start the meeting without him."
+          },
+          {
+            "letter": "C",
+            "text": "Tom is asking others to cancel the science group meeting."
+          },
+          {
+            "letter": "D",
+            "text": "Tom wants others to inform the group about a change of venue."
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "number": 2,
+        "prompt": "What does this sign mean?",
+        "stimulusHtml": "\n                <div class='sign-card'>\n                    <strong>Child fares are<br>not available on any of<br>our routes after 11pm.</strong>\n                    <span>Adult fares will be charged at these times.</span>\n                </div>\n                ",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Children who look older than 11 years old may be asked to pay adult fare."
+          },
+          {
+            "letter": "B",
+            "text": "Children must use an adult ticket after 11pm."
+          },
+          {
+            "letter": "C",
+            "text": "You have to pay adult fares at all times."
+          },
+          {
+            "letter": "D",
+            "text": "You cannot use child fares after 11am."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Mark the letter A, B, C, or D on your answer sheet to indicate the correct answer to each of the following questions.",
+    "questions": [
+      {
+        "id": "q3",
+        "number": 3,
+        "prompt": "She is _______ a skilful tailor that all the ladies in the neighborhood like her.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "too"
+          },
+          {
+            "letter": "B",
+            "text": "as"
+          },
+          {
+            "letter": "C",
+            "text": "so"
+          },
+          {
+            "letter": "D",
+            "text": "such"
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "number": 4,
+        "prompt": "A _______ is a soft material often used to make erasers and tires.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "steel"
+          },
+          {
+            "letter": "B",
+            "text": "plastic"
+          },
+          {
+            "letter": "C",
+            "text": "copper"
+          },
+          {
+            "letter": "D",
+            "text": "rubber"
+          }
+        ]
+      },
+      {
+        "id": "q5",
+        "number": 5,
+        "prompt": "Alex and Jordan are discussing their upcoming exams. Alex is worried about the maths exam.<br><strong>Alex:</strong> “I’m feeling really stressed about the maths exam. Could you help me, please?”<br><strong>Jordan:</strong> “Sure. _______”",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Maths is boring for me."
+          },
+          {
+            "letter": "B",
+            "text": "Let’s go over some practice problems together."
+          },
+          {
+            "letter": "C",
+            "text": "No way. You will be fine."
+          },
+          {
+            "letter": "D",
+            "text": "You shouldn't study harder."
+          }
+        ]
+      },
+      {
+        "id": "q6",
+        "number": 6,
+        "prompt": "Vietnam is famous for its traditional _______, which are often handmade by skilled artisans in rural areas.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "cultural festivals"
+          },
+          {
+            "letter": "B",
+            "text": "shopping malls"
+          },
+          {
+            "letter": "C",
+            "text": "handicrafts"
+          },
+          {
+            "letter": "D",
+            "text": "tourist attractions"
+          }
+        ]
+      },
+      {
+        "id": "q7",
+        "number": 7,
+        "prompt": "It’s important to take a _______ when you feel tired or overworked.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "stop"
+          },
+          {
+            "letter": "B",
+            "text": "priority"
+          },
+          {
+            "letter": "C",
+            "text": "break"
+          },
+          {
+            "letter": "D",
+            "text": "session"
+          }
+        ]
+      },
+      {
+        "id": "q8",
+        "number": 8,
+        "prompt": "You _______ balance your study and life if you _______ to have good mental health.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "shouldn't / want"
+          },
+          {
+            "letter": "B",
+            "text": "must / don't want"
+          },
+          {
+            "letter": "C",
+            "text": "should / want"
+          },
+          {
+            "letter": "D",
+            "text": "can / wanted"
+          }
+        ]
+      },
+      {
+        "id": "q9",
+        "number": 9,
+        "prompt": "Many travellers _______ rare items or handmade goods at local markets.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "look up"
+          },
+          {
+            "letter": "B",
+            "text": "use for"
+          },
+          {
+            "letter": "C",
+            "text": "search in"
+          },
+          {
+            "letter": "D",
+            "text": "hunt for"
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "number": 10,
+        "prompt": "The sales assistant suggested that Tom _______ the lightweight laptop.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "bought"
+          },
+          {
+            "letter": "B",
+            "text": "to buy"
+          },
+          {
+            "letter": "C",
+            "text": "buys"
+          },
+          {
+            "letter": "D",
+            "text": "buy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Mark the letter A, B, C, or D on your answer sheet to indicate the word that differs from the other three in the position of primary stress in each of the following questions.",
+    "questions": [
+      {
+        "id": "q11",
+        "number": 11,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "complex"
+          },
+          {
+            "letter": "B",
+            "text": "structure"
+          },
+          {
+            "letter": "C",
+            "text": "basic"
+          },
+          {
+            "letter": "D",
+            "text": "observe"
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "number": 12,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "flexible"
+          },
+          {
+            "letter": "B",
+            "text": "bilingual"
+          },
+          {
+            "letter": "C",
+            "text": "paradise"
+          },
+          {
+            "letter": "D",
+            "text": "popular"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Mark the letter A, B, C, or D on your answer sheet to indicate the sentence that is made from the given cues in each of the following questions.",
+    "questions": [
+      {
+        "id": "q13",
+        "number": 13,
+        "prompt": "The / young / children / be /, the / easy / it / be / them / remember / lesson.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "The more young the children are, the easy it is for them to remember the lesson."
+          },
+          {
+            "letter": "B",
+            "text": "The younger the children are, the easier it is for them to remember the lesson."
+          },
+          {
+            "letter": "C",
+            "text": "The younger the children are, the easier it be for them to remembe the lesson."
+          },
+          {
+            "letter": "D",
+            "text": "The younger the children are, the easy it is for them to remember the lesson."
+          }
+        ]
+      },
+      {
+        "id": "q14",
+        "number": 14,
+        "prompt": "We / not / mind / go off / path / but / we / always careful / not / damage anything.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "We don't mind to go off the path, but we're always careful not to damage anything."
+          },
+          {
+            "letter": "B",
+            "text": "We don't mind go off the path, but we're always careful not damage anything."
+          },
+          {
+            "letter": "C",
+            "text": "We don't mind going off path, but we're always careful not damaging anything."
+          },
+          {
+            "letter": "D",
+            "text": "We don't mind going off the path, but we're always careful not to damage anything."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Mark the letter A, B, C, or D on your answer sheet to indicate the word whose underlined part differs from the other three in pronunciation in each of the following questions.",
+    "questions": [
+      {
+        "id": "q15",
+        "number": 15,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "html": "thou<u>gh</u>tful"
+          },
+          {
+            "letter": "B",
+            "html": "althou<u>gh</u>"
+          },
+          {
+            "letter": "C",
+            "html": "enou<u>gh</u>"
+          },
+          {
+            "letter": "D",
+            "html": "nei<u>gh</u>bour"
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "number": 16,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "html": "<u>a</u>ssignment"
+          },
+          {
+            "letter": "B",
+            "html": "<u>a</u>dditional"
+          },
+          {
+            "letter": "C",
+            "html": "<u>a</u>nxiety"
+          },
+          {
+            "letter": "D",
+            "html": "<u>a</u>ccomplish"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Mark the letter A, B, C, or D on your answer sheet to indicate the sentence that is closest in meaning to the original sentence in each of the following questions.",
+    "questions": [
+      {
+        "id": "q17",
+        "number": 17,
+        "prompt": "\"I have never seen such a beautiful sunset before,\" she said.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "She said that she had never seen such a beautiful sunset before."
+          },
+          {
+            "letter": "B",
+            "text": "She said that she has never seen such a beautiful sunset before."
+          },
+          {
+            "letter": "C",
+            "text": "She said that she never sees such a beautiful sunset before."
+          },
+          {
+            "letter": "D",
+            "text": "She said that she never saw such a beautiful sunset before."
+          }
+        ]
+      },
+      {
+        "id": "q18",
+        "number": 18,
+        "prompt": "He suggested his students give priority to their health and family.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "If he was his students, he would prioritizes his health and family."
+          },
+          {
+            "letter": "B",
+            "text": "If he was his students, he will give priority to his health and family."
+          },
+          {
+            "letter": "C",
+            "text": "If he were his students, he would prioritize his health and family."
+          },
+          {
+            "letter": "D",
+            "text": "If he were his students, he would prioritize to his health and family."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the correct answer to each of the following questions from 19 to 24.",
+    "passageHtml": "\n            <div class='passage'>\n                <p>A recent study asked 2,000 children aged 6 to 14 about their dream jobs. The most popular choice was to become a YouTuber, with almost 20% of children choosing this role. Other popular jobs included being a teacher (15%), a sports personality (14%), and a game designer (13%).</p>\n                <p>The study, conducted by KidZania London, a realistic role-play city for kids, also found that many children are worried about their future. Three out of five children are concerned about whether they will be able to get a job when they grow up.</p>\n                <p>Older children, aged 11 to 14, are especially focused on getting a well-paying job. Half of them want a job that will allow them to live a nice life. Other important factors include having a job that matches their hobbies (36%) and helping others (30%).</p>\n                <p>Surprisingly, only a small percentage of children (2%) wanted jobs like Prime Minister, banker, or care worker. While many children dream of being YouTubers, only 5% think this job will make the world a better place. Instead, they believe that doctors (35%) and scientists (23%) are the most likely to bring positive change to society.</p>\n                <p>Many children understand the importance of further education. About 67% of those aged 11 to 14 are considering going to university or college because they believe their dream job will require it.</p>\n                <p class='source-note'>(Adapted from: schooltraveller.com)</p>\n            </div>\n        ",
+    "questions": [
+      {
+        "id": "q19",
+        "number": 19,
+        "prompt": "What is the passage mainly about?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Why children want to become doctors and scientists"
+          },
+          {
+            "letter": "B",
+            "text": "Children's dream jobs and their views about future careers"
+          },
+          {
+            "letter": "C",
+            "text": "The disadvantages of becoming a YouTuber"
+          },
+          {
+            "letter": "D",
+            "text": "The importance of university education for children"
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "number": 20,
+        "prompt": "Which statement is true about children's dream jobs?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Being a sports personality is more popular than being a teacher."
+          },
+          {
+            "letter": "B",
+            "text": "Only 13% of children wanted to become a YouTuber."
+          },
+          {
+            "letter": "C",
+            "text": "More children want to be game designers than teachers."
+          },
+          {
+            "letter": "D",
+            "text": "YouTuber is the most popular career choice."
+          }
+        ]
+      },
+      {
+        "id": "q21",
+        "number": 21,
+        "prompt": "The word \"concerned\" in paragraph 2 is CLOSEST in meaning to _______.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "worried"
+          },
+          {
+            "letter": "B",
+            "text": "interested"
+          },
+          {
+            "letter": "C",
+            "text": "excited"
+          },
+          {
+            "letter": "D",
+            "text": "confused"
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "number": 22,
+        "prompt": "Why are older children (aged 11 to 14) particularly focused on well-paying jobs?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "They want to help others through their work."
+          },
+          {
+            "letter": "B",
+            "text": "They think it will make the world a better place."
+          },
+          {
+            "letter": "C",
+            "text": "They are more concerned about their hobbies than younger children."
+          },
+          {
+            "letter": "D",
+            "text": "They believe this kind of job will allow them to enjoy a good lifestyle."
+          }
+        ]
+      },
+      {
+        "id": "q23",
+        "number": 23,
+        "prompt": "Which profession do children believe is the most likely to improve society?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Scientists"
+          },
+          {
+            "letter": "B",
+            "text": "YouTubers"
+          },
+          {
+            "letter": "C",
+            "text": "Doctors"
+          },
+          {
+            "letter": "D",
+            "text": "Teachers"
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "number": 24,
+        "prompt": "What motivates many children to consider further education?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Their parents' advice"
+          },
+          {
+            "letter": "B",
+            "text": "Their desire for a better life"
+          },
+          {
+            "letter": "C",
+            "text": "Their hobbies"
+          },
+          {
+            "letter": "D",
+            "text": "Their dream job requirements"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "questions": [
+      {
+        "id": "q25",
+        "number": 25,
+        "prompt": "Put the sentences (a-c) in the correct order, then fill in the blank to make a logical text. Last winter, my best friends and I booked a package holiday to a dreamy remote island that few people knew about. ________<br><span class='indent-line'>a. We ended up staying in a local homestay, where the host told us stories about a world-famous shipwreck near the island.</span><span class='indent-line'>b. At first, everything seemed perfect - our itinerary promised beautiful beaches and exciting adventures.</span><span class='indent-line'>c. However, as soon as we arrived at the destination, a sudden storm hit, and we were stuck without transportation.</span>",
+        "options": [
+          {
+            "letter": "A",
+            "text": "b-a-c"
+          },
+          {
+            "letter": "B",
+            "text": "b-c-a"
+          },
+          {
+            "letter": "C",
+            "text": "a-c-b"
+          },
+          {
+            "letter": "D",
+            "text": "c-b-a"
+          }
+        ]
+      },
+      {
+        "id": "q26",
+        "number": 26,
+        "prompt": "Choose the sentence that can end the text (in Question 25) most appropriately.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "After all, we had a scary yet luxurious trip together that we would never forget."
+          },
+          {
+            "letter": "B",
+            "text": "Finally, all of us were relieved after being rescued from the shipwreck."
+          },
+          {
+            "letter": "C",
+            "text": "Fortunately, the storm cleared, and we finally managed to meet our lost tour guide."
+          },
+          {
+            "letter": "D",
+            "text": "In the end, the trip turned into an unexpected adventure, and we even discovered the hidden wreck site."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Read the following announcement and mark the letter A, B, C, or D on your answer sheet to indicate the correct option that best fits each of the numbered blanks from 27 to 30.",
+    "passageHtml": "\n            <div class='announcement'>\n                <h3>RECRUITMENT ANNOUNCEMENT<br>GLOBAL LINGUA CLUB</h3>\n                <p>Do you love learning languages and exploring cultures? Join Global Lingua Club today!</p>\n                <ul>\n                    <li><strong>Exciting activities:</strong> Practice English, French, Japanese, and (27) _______ languages through games and conversations.</li>\n                    <li><strong>Skill development:</strong> Learn to speak (28) _______, give presentations, and work in teams effectively.</li>\n                    <li><strong>Friendly environment:</strong> Make new friends who share your (29) _______ for languages.</li>\n                    <li><strong>Registration deadline:</strong> Before January 20, 2025.</li>\n                </ul>\n                <p>To sign up, email us (30) _______ globallinguaclub@hotmail.com or call 0123 465 976.</p>\n            </div>\n        ",
+    "questions": [
+      {
+        "id": "q27",
+        "number": 27,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "another"
+          },
+          {
+            "letter": "B",
+            "text": "others"
+          },
+          {
+            "letter": "C",
+            "text": "other"
+          },
+          {
+            "letter": "D",
+            "text": "the others"
+          }
+        ]
+      },
+      {
+        "id": "q28",
+        "number": 28,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "fluently"
+          },
+          {
+            "letter": "B",
+            "text": "simply"
+          },
+          {
+            "letter": "C",
+            "text": "recklessly"
+          },
+          {
+            "letter": "D",
+            "text": "enormously"
+          }
+        ]
+      },
+      {
+        "id": "q29",
+        "number": 29,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "talent"
+          },
+          {
+            "letter": "B",
+            "text": "interest"
+          },
+          {
+            "letter": "C",
+            "text": "passion"
+          },
+          {
+            "letter": "D",
+            "text": "hobby"
+          }
+        ]
+      },
+      {
+        "id": "q30",
+        "number": 30,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "over"
+          },
+          {
+            "letter": "B",
+            "text": "at"
+          },
+          {
+            "letter": "C",
+            "text": "in"
+          },
+          {
+            "letter": "D",
+            "text": "on"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the correct word or phrase that best fits each of the numbered blanks from 31 to 36.",
+    "passageHtml": "\n            <div class='passage'>\n                <p>In the past, parents, children, grandparents, aunts, uncles and cousins often lived together in a/an (31) _______ family. Today, it is common that a nuclear family with parents and children live in a household. In the past, Vietnamese people mostly travelled (32) _______ foot. They also got around by hand-drawn carts (rickshaws) or bicycle carts (cyclos). Today, motorcycles are popular, but there are also cars, buses, trains and planes.</p>\n                <p>A long time ago, most Vietnamese people lived in cottages or small houses, but a lot of people live in tube houses today. Flats in skyscrapers are popular in big cities (33) _______ there are lots of small brick houses in the countryside.</p>\n                <p>In the old days, men worked outside the home while women stayed home to do the housework and (34) _______ children. Nowadays, both the husband and the wife work and make a good living to support the family.</p>\n                <p>Long ago, many parents did not usually send girls to school. Nowadays, boys and girls have equal (35) _______ for education. Also, there are many schools and universities because the Vietnamese (36) _______ education.</p>\n                <p class='source-note'>(Adapted from Right on)</p>\n            </div>\n        ",
+    "questions": [
+      {
+        "id": "q31",
+        "number": 31,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "nuclear"
+          },
+          {
+            "letter": "B",
+            "text": "private"
+          },
+          {
+            "letter": "C",
+            "text": "personal"
+          },
+          {
+            "letter": "D",
+            "text": "extended"
+          }
+        ]
+      },
+      {
+        "id": "q32",
+        "number": 32,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "in"
+          },
+          {
+            "letter": "B",
+            "text": "on"
+          },
+          {
+            "letter": "C",
+            "text": "by"
+          },
+          {
+            "letter": "D",
+            "text": "with"
+          }
+        ]
+      },
+      {
+        "id": "q33",
+        "number": 33,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "which"
+          },
+          {
+            "letter": "B",
+            "text": "where"
+          },
+          {
+            "letter": "C",
+            "text": "when"
+          },
+          {
+            "letter": "D",
+            "text": "while"
+          }
+        ]
+      },
+      {
+        "id": "q34",
+        "number": 34,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "raise"
+          },
+          {
+            "letter": "B",
+            "text": "reduce"
+          },
+          {
+            "letter": "C",
+            "text": "increase"
+          },
+          {
+            "letter": "D",
+            "text": "rise"
+          }
+        ]
+      },
+      {
+        "id": "q35",
+        "number": 35,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "priorities"
+          },
+          {
+            "letter": "B",
+            "text": "trends"
+          },
+          {
+            "letter": "C",
+            "text": "opportunities"
+          },
+          {
+            "letter": "D",
+            "text": "choices"
+          }
+        ]
+      },
+      {
+        "id": "q36",
+        "number": 36,
+        "prompt": "",
+        "options": [
+          {
+            "letter": "A",
+            "text": "are highly valuable"
+          },
+          {
+            "letter": "B",
+            "text": "highly value"
+          },
+          {
+            "letter": "C",
+            "text": "have high valuable"
+          },
+          {
+            "letter": "D",
+            "text": "don't value highly"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Four phrases/ sentences have been removed from the text below. For each question, mark the letter A, B, C, or D on your answer sheet to indicate the correct option that best fits each of the numbered blanks from 37 to 40.",
+    "passageHtml": "\n            <div class='phrase-bank'>\n                <p><strong>A.</strong> Memorization was also a key part of their education</p>\n                <p><strong>B.</strong> would speak aloud what they had learned</p>\n                <p><strong>C.</strong> taught all students from ages five or six up to thirteen or fourteen, or even older</p>\n                <p><strong>D.</strong> Typically, these schoolhouses had about fifteen to twenty students</p>\n            </div>\n            <div class='passage'>\n                <h3>ONE-ROOM SCHOOLHOUSES</h3>\n                <p>In the 1800s and early 1900s, most children attended school in one-room schoolhouses. During this time, most people lived on farms, which were spread out over large areas. One-room schoolhouses were built because there were not many children in the rural communities. (37) _______. Each one-room schoolhouse had just one teacher who (38) _______. The teacher also covered all subjects. In these schools, students did a lot of reciting and memorizing. Reciting means that students (39) _______. When the teacher asked a question, students would stand up and recite the answer. (40) _______. Students were often asked to memorize poems, famous quotes, and important facts.</p>\n            </div>\n        ",
+    "questions": [
+      {
+        "id": "q37",
+        "number": 37,
+        "prompt": "Question 37: _______",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Memorization was also a key part of their education"
+          },
+          {
+            "letter": "B",
+            "text": "would speak aloud what they had learned"
+          },
+          {
+            "letter": "C",
+            "text": "taught all students from ages five or six up to thirteen or fourteen, or even older"
+          },
+          {
+            "letter": "D",
+            "text": "Typically, these schoolhouses had about fifteen to twenty students"
+          }
+        ]
+      },
+      {
+        "id": "q38",
+        "number": 38,
+        "prompt": "Question 38: _______",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Memorization was also a key part of their education"
+          },
+          {
+            "letter": "B",
+            "text": "would speak aloud what they had learned"
+          },
+          {
+            "letter": "C",
+            "text": "taught all students from ages five or six up to thirteen or fourteen, or even older"
+          },
+          {
+            "letter": "D",
+            "text": "Typically, these schoolhouses had about fifteen to twenty students"
+          }
+        ]
+      },
+      {
+        "id": "q39",
+        "number": 39,
+        "prompt": "Question 39: _______",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Memorization was also a key part of their education"
+          },
+          {
+            "letter": "B",
+            "text": "would speak aloud what they had learned"
+          },
+          {
+            "letter": "C",
+            "text": "taught all students from ages five or six up to thirteen or fourteen, or even older"
+          },
+          {
+            "letter": "D",
+            "text": "Typically, these schoolhouses had about fifteen to twenty students"
+          }
+        ]
+      },
+      {
+        "id": "q40",
+        "number": 40,
+        "prompt": "Question 40: _______",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Memorization was also a key part of their education"
+          },
+          {
+            "letter": "B",
+            "text": "would speak aloud what they had learned"
+          },
+          {
+            "letter": "C",
+            "text": "taught all students from ages five or six up to thirteen or fourteen, or even older"
+          },
+          {
+            "letter": "D",
+            "text": "Typically, these schoolhouses had about fifteen to twenty students"
+          }
+        ]
+      }
+    ]
+  }
+];
+const explanations = {
+  "q1": "Tom nói sẽ đến muộn và nhờ mọi người bắt đầu buổi họp mà không cần chờ mình.",
+  "q2": "Biển báo cho biết sau 11 giờ tối không áp dụng vé trẻ em, phải trả giá vé người lớn.",
+  "q3": "Cấu trúc đúng là 'such + a/an + adjective + noun + that'.",
+  "q4": "Rubber là cao su, vật liệu mềm thường dùng làm tẩy và lốp xe.",
+  "q5": "Lời đáp phù hợp với yêu cầu giúp đỡ là cùng ôn các bài luyện tập.",
+  "q6": "Handicrafts là đồ thủ công, thường do nghệ nhân làm bằng tay.",
+  "q7": "'Take a break' nghĩa là nghỉ giải lao khi mệt hoặc làm việc quá sức.",
+  "q8": "Câu điều kiện loại 1: should + V; if + S + want(s).",
+  "q9": "'Hunt for' nghĩa là tìm kiếm, săn tìm các món đồ hiếm hoặc hàng thủ công.",
+  "q10": "Sau 'suggested that' dùng động từ nguyên thể không 'to': Tom buy.",
+  "q11": "'Observe' nhấn âm thứ hai, các từ còn lại nhấn âm đầu.",
+  "q12": "'Bilingual' có trọng âm khác với flexible, paradise và popular.",
+  "q13": "Cấu trúc so sánh kép đúng: The younger..., the easier....",
+  "q14": "Sau 'mind' dùng V-ing; sau 'careful' dùng 'not to + V'.",
+  "q15": "Phần gạch chân 'gh' trong 'enough' phát âm /f/, khác với các từ còn lại.",
+  "q16": "Nguyên âm gạch chân trong 'anxiety' có âm khác với các từ còn lại.",
+  "q17": "Câu tường thuật lùi thì: have never seen -> had never seen.",
+  "q18": "Câu điều kiện giả định dùng 'If he were...' và động từ 'prioritize'.",
+  "q19": "Toàn bài nói về nghề mơ ước của trẻ em và quan điểm của các em về nghề nghiệp tương lai.",
+  "q20": "Đoạn 1 nêu YouTuber là lựa chọn phổ biến nhất, gần 20%. ",
+  "q21": "'Concerned' trong ngữ cảnh này đồng nghĩa với 'worried'.",
+  "q22": "Đoạn 3 nói các em muốn công việc lương tốt để có cuộc sống tốt đẹp.",
+  "q23": "Trẻ em tin doctors (35%) có khả năng tạo thay đổi tích cực lớn nhất.",
+  "q24": "Nhiều em cân nhắc học tiếp vì cho rằng nghề mơ ước yêu cầu điều đó.",
+  "q25": "Trình tự hợp lý: ban đầu mọi thứ hoàn hảo, sau đó gặp bão, cuối cùng ở homestay.",
+  "q26": "Câu D kết thúc hợp lý vì chuyến đi trở thành cuộc phiêu lưu và gắn với xác tàu đắm.",
+  "q27": "'Other languages' là cụm đúng khi nói thêm các ngôn ngữ khác.",
+  "q28": "'Speak fluently' là kết hợp từ đúng nghĩa là nói lưu loát.",
+  "q29": "'Passion for languages' nghĩa là niềm đam mê với ngôn ngữ.",
+  "q30": "Dùng giới từ 'at' trước địa chỉ email.",
+  "q31": "Gia đình nhiều thế hệ gồm ông bà, cô dì, chú bác, anh em họ là extended family.",
+  "q32": "Cụm đúng là 'travel on foot' - đi bộ.",
+  "q33": "'While' diễn tả sự đối lập giữa nhà cao tầng ở thành phố và nhà gạch ở nông thôn.",
+  "q34": "'Raise children' nghĩa là nuôi dạy con cái.",
+  "q35": "'Equal opportunities for education' là cơ hội giáo dục bình đẳng.",
+  "q36": "Chủ ngữ 'the Vietnamese' đi với động từ 'highly value'.",
+  "q37": "Câu D giải thích quy mô lớp nhỏ, nối hợp lý với lý do chỉ có ít trẻ em ở vùng nông thôn.",
+  "q38": "Câu C bổ nghĩa cho 'teacher who', nêu giáo viên dạy học sinh nhiều độ tuổi.",
+  "q39": "Câu B định nghĩa 'reciting' là nói to những gì đã học.",
+  "q40": "Câu A chuyển sang ý memorization, phù hợp với câu sau về việc học thuộc thơ, trích dẫn và sự kiện."
+};
+const answerKey = {
+  q1: 'B',
+  q2: 'B',
+  q3: 'D',
+  q4: 'D',
+  q5: 'B',
+  q6: 'C',
+  q7: 'C',
+  q8: 'C',
+  q9: 'D',
+  q10: 'D',
+  q11: 'D',
+  q12: 'B',
+  q13: 'B',
+  q14: 'D',
+  q15: 'C',
+  q16: 'C',
+  q17: 'A',
+  q18: 'C',
+  q19: 'B',
+  q20: 'D',
+  q21: 'A',
+  q22: 'D',
+  q23: 'C',
+  q24: 'D',
+  q25: 'B',
+  q26: 'D',
+  q27: 'C',
+  q28: 'A',
+  q29: 'C',
+  q30: 'B',
+  q31: 'D',
+  q32: 'B',
+  q33: 'D',
+  q34: 'A',
+  q35: 'C',
+  q36: 'B',
+  q37: 'D',
+  q38: 'C',
+  q39: 'B',
+  q40: 'A'
+};
+
+const totalQuestions = sections.reduce((sum, section) => sum + section.questions.length, 0);
+const totalSeconds = examInfo.durationMinutes * 60;
+let remainingSeconds = totalSeconds;
+let timerInterval = null;
+let startTime = Date.now();
+let submitted = false;
+let submittedAnswers = {};
+let finalResult = null;
+
+const letters = ['A', 'B', 'C', 'D'];
+const examContent = document.getElementById('examContent');
+const quickGrid = document.getElementById('quickGrid');
+const progressLine = document.getElementById('progressLine');
+const timerEl = document.getElementById('timer');
+const submitBtn = document.getElementById('submitBtn');
+const pdfBtn = document.getElementById('pdfBtn');
+const resultBox = document.getElementById('resultBox');
+const explanationsBox = document.getElementById('explanations');
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+}
+
+function formatTime(total) {
+    const minutes = Math.floor(total / 60);
+    const seconds = total % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function formatDuration(total) {
+    const minutes = Math.floor(total / 60);
+    const seconds = total % 60;
+    return `${minutes} phút ${String(seconds).padStart(2, '0')} giây`;
+}
+
+function getAllQuestions() {
+    return sections.flatMap(section => section.questions.map(question => ({...question, sectionTitle: section.title || 'Phần câu hỏi'})));
+}
+
+function selectedValue(qid) {
+    const checked = document.querySelector(`input[name="${qid}"]:checked`);
+    return checked ? checked.value : '';
+}
+
+function getAnswers() {
+    const answers = {};
+    getAllQuestions().forEach(q => answers[q.id] = selectedValue(q.id));
+    return answers;
+}
+
+function renderExam() {
+    examContent.innerHTML = sections.map((section, sIndex) => `
+        <section class="section" data-section="${sIndex + 1}">
+            ${section.title ? `<p class="section-title">${section.title}</p>` : ''}
+            ${section.passageHtml || ''}
+            ${section.questions.map(renderQuestion).join('')}
+        </section>
+    `).join('');
+
+    quickGrid.innerHTML = getAllQuestions().map(q => `
+        <div class="quick-item" id="quick-${q.id}">
+            <a href="#${q.id}" aria-label="Đi tới câu ${q.number}">${q.number}</a>
+            <div class="quick-options">
+                ${letters.map(letter => `
+                    <label title="Câu ${q.number} - ${letter}">
+                        <input type="radio" name="${q.id}" value="${letter}" data-qid="${q.id}" data-letter="${letter}">
+                        <span>${letter}</span>
+                    </label>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener('change', handleChoiceChange);
+    });
+    updateProgress();
+}
+
+function renderQuestion(question) {
+    const prompt = question.prompt || '';
+    return `
+        <div class="question" id="${question.id}" data-qid="${question.id}" data-number="${question.number}">
+            <div class="q-head">
+                <div class="q-number">Question ${question.number}.</div>
+                <div class="q-prompt">${prompt}</div>
+            </div>
+            ${question.stimulusHtml || ''}
+            <div class="options">
+                ${question.options.map(option => {
+                    const labelHtml = option.html || escapeHtml(option.text);
+                    return `
+                        <label class="option" data-qid="${question.id}" data-letter="${option.letter}">
+                            <input type="radio" name="${question.id}" value="${option.letter}" data-qid="${question.id}" data-letter="${option.letter}">
+                            <span class="letter">${option.letter}.</span>
+                            <span class="option-text">${labelHtml}</span>
+                        </label>
+                    `;
+                }).join('')}
+            </div>
+            <div class="q-status" id="status-${question.id}"></div>
+        </div>
+    `;
+}
+
+function handleChoiceChange(event) {
+    if (submitted) return;
+    const { qid, letter } = event.target.dataset;
+    document.querySelectorAll(`input[name="${qid}"][value="${letter}"]`).forEach(input => {
+        input.checked = true;
+    });
+    updateProgress();
+}
+
+function updateProgress() {
+    const answers = getAnswers();
+    const answered = Object.values(answers).filter(Boolean).length;
+    progressLine.textContent = `Đã trả lời: ${answered}/${totalQuestions} câu`;
+    getAllQuestions().forEach(q => {
+        const item = document.getElementById(`quick-${q.id}`);
+        if (item) item.classList.toggle('answered', Boolean(answers[q.id]));
+    });
+}
+
+function startTimer() {
+    timerEl.textContent = formatTime(remainingSeconds);
+    timerInterval = window.setInterval(() => {
+        if (submitted) return;
+        remainingSeconds -= 1;
+        if (remainingSeconds <= 300 && remainingSeconds > 0) timerEl.classList.add('warning');
+        if (remainingSeconds <= 0) {
+            remainingSeconds = 0;
+            timerEl.textContent = formatTime(remainingSeconds);
+            timerEl.classList.remove('warning');
+            timerEl.classList.add('expired');
+            submitExam(true);
+            return;
+        }
+        timerEl.textContent = formatTime(remainingSeconds);
+    }, 1000);
+}
+
+function submitExam(force = false) {
+    if (submitted) return;
+    const answers = getAnswers();
+    const missing = getAllQuestions().filter(q => !answers[q.id]).map(q => q.number);
+    if (!force && missing.length > 0) {
+        const ok = window.confirm(`Bạn còn ${missing.length} câu chưa trả lời: ${missing.join(', ')}.\nBạn vẫn muốn nộp bài?`);
+        if (!ok) return;
+    }
+
+    submitted = true;
+    submittedAnswers = {...answers};
+    window.clearInterval(timerInterval);
+    const elapsedSeconds = Math.min(totalSeconds, Math.max(0, Math.round((Date.now() - startTime) / 1000)));
+    const submittedAt = new Date();
+    const attemptCount = increaseAttemptCount();
+
+    let correctCount = 0;
+    getAllQuestions().forEach(q => {
+        if (submittedAnswers[q.id] === answerKey[q.id]) correctCount += 1;
+    });
+    const score = Number(((correctCount / totalQuestions) * 10).toFixed(2));
+
+    finalResult = {
+        submittedAt,
+        elapsedSeconds,
+        attemptCount,
+        correctCount,
+        totalQuestions,
+        score,
+        missingCount: missing.length,
+        answers: submittedAnswers
+    };
+
+    lockAnswers();
+    markAnswers();
+    showResult();
+    renderExplanations();
+    buildTeacherReport();
+    submitBtn.disabled = true;
+    pdfBtn.style.display = 'block';
+    resultBox.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+
+function increaseAttemptCount() {
+    const key = examInfo.storageKey;
+    const current = Number.parseInt(localStorage.getItem(key) || '0', 10) || 0;
+    const next = current + 1;
+    localStorage.setItem(key, String(next));
+    return next;
+}
+
+function lockAnswers() {
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.disabled = true;
+    });
+    document.getElementById('studentName').disabled = true;
+    document.getElementById('studentClass').disabled = true;
+    document.body.classList.add('submitted');
+}
+
+function markAnswers() {
+    getAllQuestions().forEach(q => {
+        const correct = answerKey[q.id];
+        const selected = submittedAnswers[q.id];
+        document.querySelectorAll(`.option[data-qid="${q.id}"]`).forEach(optionEl => {
+            const letter = optionEl.dataset.letter;
+            if (letter === correct) optionEl.classList.add('correct');
+            if (selected && selected !== correct && letter === selected) optionEl.classList.add('wrong');
+        });
+        const statusEl = document.getElementById(`status-${q.id}`);
+        if (!selected) {
+            statusEl.textContent = `Chưa trả lời. Đáp án đúng: ${correct}.`;
+            statusEl.className = 'q-status blank-text';
+        } else if (selected === correct) {
+            statusEl.textContent = `Đúng. Đáp án: ${correct}.`;
+            statusEl.className = 'q-status correct-text';
+        } else {
+            statusEl.textContent = `Sai. Bạn chọn ${selected}; đáp án đúng: ${correct}.`;
+            statusEl.className = 'q-status wrong-text';
+        }
+    });
+}
+
+function showResult() {
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `
+        <h3>Kết quả bài làm</h3>
+        <p><strong>Số câu đúng:</strong> ${finalResult.correctCount}/${finalResult.totalQuestions}</p>
+        <p><strong>Điểm thang 10:</strong> ${finalResult.score}</p>
+        <p><strong>Câu chưa trả lời:</strong> ${finalResult.missingCount}</p>
+        <p><strong>Thời gian làm bài thực tế:</strong> ${formatDuration(finalResult.elapsedSeconds)}</p>
+    `;
+}
+
+function renderExplanations() {
+    explanationsBox.style.display = 'block';
+    let html = '<h2>Đáp án và giải thích</h2>';
+    sections.forEach(section => {
+        const title = section.title || 'Phần câu hỏi';
+        html += `<h3>${title}</h3>`;
+        section.questions.forEach(q => {
+            html += `
+                <div class="explanation-item">
+                    <strong>Câu ${q.number}: Đáp án ${answerKey[q.id]}.</strong>
+                    <span>${escapeHtml(explanations[q.id] || 'Cần kiểm tra lại giải thích.')}</span>
+                </div>
+            `;
+        });
+    });
+    explanationsBox.innerHTML = html;
+}
+
+function buildTeacherReport() {
+    if (!finalResult) return;
+    const studentName = document.getElementById('studentName').value.trim() || 'Chưa nhập';
+    const studentClass = document.getElementById('studentClass').value.trim() || 'Chưa nhập';
+    const submittedAt = finalResult.submittedAt.toLocaleString('vi-VN', {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+
+    const detailRows = getAllQuestions().map(q => {
+        const chosen = finalResult.answers[q.id] || 'Chưa trả lời';
+        const correct = answerKey[q.id];
+        let result = 'Chưa trả lời';
+        if (chosen !== 'Chưa trả lời') result = chosen === correct ? 'Đúng' : 'Sai';
+        return `
+            <tr>
+                <td>${q.number}</td>
+                <td>${chosen}</td>
+                <td>${correct}</td>
+                <td>${result}</td>
+                <td>${result === 'Đúng' ? 'Đạt đáp án đúng' : result === 'Sai' ? 'Chọn sai đáp án' : 'Không chọn đáp án'}</td>
+            </tr>
+        `;
+    }).join('');
+
+    document.getElementById('teacherReport').innerHTML = `
+        <h1 class="print-title">PHIẾU KẾT QUẢ BÀI LÀM</h1>
+        <div class="report-meta">
+            <div><strong>Tên trường:</strong> ${escapeHtml(examInfo.school)}</div>
+            <div><strong>Tên kỳ thi:</strong> ${escapeHtml(examInfo.examTitle)}</div>
+            <div><strong>Năm học:</strong> ${escapeHtml(examInfo.schoolYear)}</div>
+            <div><strong>Môn thi:</strong> ${escapeHtml(examInfo.subject)}</div>
+            <div><strong>Mã đề:</strong> ${escapeHtml(examInfo.code)}</div>
+            <div><strong>Thời gian quy định:</strong> ${examInfo.durationMinutes} phút</div>
+            <div><strong>Họ và tên học sinh:</strong> ${escapeHtml(studentName)}</div>
+            <div><strong>Số báo danh hoặc lớp:</strong> ${escapeHtml(studentClass)}</div>
+            <div><strong>Thời điểm nộp bài:</strong> ${submittedAt}</div>
+            <div><strong>Thời gian làm bài thực tế:</strong> ${formatDuration(finalResult.elapsedSeconds)}</div>
+            <div><strong>Số lượt làm bài:</strong> ${finalResult.attemptCount}</div>
+            <div><strong>Số câu đúng:</strong> ${finalResult.correctCount}/${finalResult.totalQuestions}</div>
+            <div><strong>Điểm thang 10:</strong> ${finalResult.score}</div>
+        </div>
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th>Câu số</th>
+                    <th>Đáp án học sinh chọn</th>
+                    <th>Đáp án đúng</th>
+                    <th>Kết quả</th>
+                    <th>Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>${detailRows}</tbody>
+        </table>
+    `;
+}
+
+submitBtn.addEventListener('click', () => submitExam(false));
+pdfBtn.addEventListener('click', () => {
+    buildTeacherReport();
+    window.print();
+});
+
+renderExam();
+startTimer();
+
+(function selfCheck() {
+    const keyCount = Object.keys(answerKey).length;
+    if (totalQuestions !== 40 || keyCount !== 40) {
+        console.error(`Kiểm tra lỗi: số câu = ${totalQuestions}, số đáp án = ${keyCount}`);
+    }
+})();
+</script>
+</body>
+</html>
